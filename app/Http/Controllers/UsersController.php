@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//Trying to connect to the database
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -14,4 +16,11 @@ class UsersController extends Controller
         $data=["anil","Peter","Lucky","Bruce Lee"];
         return view("first",['users'=>$data]);
     }
+    function index(){
+        return DB::select("SELECT * FROM mathematics ");
+    }
+    function textRequest(Request $req){
+        return $req->input();
+    }
+    
 }

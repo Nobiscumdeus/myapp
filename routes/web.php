@@ -9,6 +9,9 @@ use App\Http\Controllers\myusers;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Users;
 use App\Http\Controllers\forms;
+use App\Http\Controllers\MathsController;
+use App\Http\Controllers\member;
+use App\Http\Controllers\upload;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +55,10 @@ Route::get('users',[myusers::class,'index']);
 //Now using the controller to load a view 
 Route::get('myusers',[UsersController::class,'loadView']);
 
-Route::view("home","home");
+//for the index function in Userscontroller 
+Route::get('myusers',[UsersController::class,'index']);
+
+Route::view("home","home")->middleware('protectedPage');
 
 Route::get("hello",function(){
     return view("hello");
@@ -68,4 +74,44 @@ Route::get("here",[UsersController::class,'viewLoad']);
 
 Route::post("forms",[forms::class,'getData']);
 Route::view("login","forms");
+Route::view("noaccess","noaccess");
+Route::get("maths",[MathsController::class,'getData']);
 
+Route::view("inner","inner");
+
+Route::put("userform",[UsersController::class,'textRequest']);
+//instead of put , you can also use delete ,method the same way.
+Route::view("login","login");
+Route::post("loginauth",[Users::class,'userlogin']);
+Route::view("profile","profile");
+
+Route::get("/logout",function(){
+    if(session()->has('username')){
+        //We deleted the session now and return to the login page
+        session()->pull('username');
+    }
+    return redirect("login");
+});
+
+Route::get("/login",function(){
+    if(session()->has('username')){
+        //We deleted the session now and return to the login page
+        return redirect("profile");
+    }
+    return redirect("login");
+});
+
+Route::get("maths",[About::class,'obtainData']);
+
+Route::view("add","add");
+Route::post("addMember",[member::class,'addMember']);
+Route::view("upload","file");
+
+Route::post("upload",[upload::class,'index']);
+
+Route::get('/profile/{lang}',function($lang){
+    App::setlocale($lang);
+    return view('profile');
+});
+
+Route::get("list",[myusers::class,'show']);
