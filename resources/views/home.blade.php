@@ -1,4 +1,4 @@
-<x-header data="First Page header component"/>
+<x-header data="Chasfat Oil Ventures"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,6 +65,9 @@ button:hover{
             <hr/>
             <p> I am a man driven by : <b> Passion </b> ; <b> Purpose </b>; <b> Pains </b> and <b>Persistence </b></p>
 
+        </div>
+        <div>
+            @include('inner');
         </div>
         <script>
             function move(){

@@ -1,1 +1,1 @@
-<h1> You cannot access this Website by Chasfat Projects </h1>
+<h1> OOops!!! You are not allowed access to CAC Oke-Alaafia Mass Choir Site </h1>

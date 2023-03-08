@@ -10,10 +10,12 @@
             </style>
 </head>
 <body>
+    <h1> This is the detail you passed : {{$name}}</h1> 
 
     <h1> About me </h1>
     <p>
         I am <b> Olumide Adeola </b> a graduate from Obafemi Awolowo University. 
+        <a href="/welcome"> To go to the welcome page </a>
         
 </p>
 <p> I was introduced to programming in my sophomoric year in the University and I startd out with python 

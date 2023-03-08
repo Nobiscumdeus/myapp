@@ -1,4 +1,22 @@
-<div>
-    <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-    <h1> {{$title}}</h1>
+<!--- {{ $title }} -->
+<div class="header">
+    <style>
+        .header{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            flex-wrap:wrap;
+        
+
+        }
+        ul{
+            list-style-type:none;
+           display:flex; 
+        }
+        ul li{
+            display: inline-flex;
+            
+        }
+        </style>
+    <h1> CHRIST APOSTOLIC CHURCH OKE-ALAAFIA , MASS CHOIR </h1>
 </div>

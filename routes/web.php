@@ -12,7 +12,9 @@ use App\Http\Controllers\forms;
 use App\Http\Controllers\MathsController;
 use App\Http\Controllers\member;
 use App\Http\Controllers\upload;
-
+use App\Http\Controllers\basic;
+use App\Http\Controllers\Songs;
+use App\Http\Controllers\ChoirRegister;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +40,7 @@ Route::get('/about',function(){
 //Route::view('xyz','page') The sxy will be part of the parameter while the second parameter represents the page
 //Route::view('greet','hello');
 Route::view('welcome','welcome');
+Route::view('file','file');
 //using the route sometimes as functions
 Route::get('hello/{id}',function($id='Olumide Adeola'){
     echo $id;
@@ -57,6 +60,9 @@ Route::get('myusers',[UsersController::class,'loadView']);
 
 //for the index function in Userscontroller 
 Route::get('myusers',[UsersController::class,'index']);
+
+//for the function in the basic controller 
+Route::get('basic/{good}',[basic::class,'index']);
 
 Route::view("home","home")->middleware('protectedPage');
 
@@ -115,3 +121,18 @@ Route::get('/profile/{lang}',function($lang){
 });
 
 Route::get("list",[myusers::class,'show']);
+
+
+Route::get('kehinde/{name}',function($name){
+    echo $name;
+    return view("about",['name'=>$name]);
+});
+Route::view('choir','choirhome');
+Route::view('members','choirmembers');
+
+Route::get('songs',[Songs::class,'index']);
+
+
+#Route::get('choir/register',[ChoirRegister::class,'register']);
+Route::post('choir/register',[ChoirRegister::class,'getData']);
+Route::view('choir/register','choirregister');
